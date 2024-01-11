@@ -8,6 +8,10 @@
             $this->model = new ClientesModels();
         }
 
+        function getAll(){
+            $resultData = $this->model->getAll(); // esse metodo tem que ser criado nas models
+            require_once('./views/index.php');
+        }
 
     }
 

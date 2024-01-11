@@ -9,6 +9,12 @@
             parent::__construct(); // Dessa maneira conseguimos invocar o construtor da classe Connect
             $this->table = 'clientes';
         }
+
+        function getAll(){
+            $sqlSelect = $this->conn->query("SELECT * FROM $this->table");
+            $resultQuery = $sqlSelect->fetchAll();
+            return $resultQuery;
+        }
     }
 
 ?>
