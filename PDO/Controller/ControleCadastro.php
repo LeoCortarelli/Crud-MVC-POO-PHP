@@ -7,6 +7,4 @@ $crud->insertBD("cadastro","?,?,?,?", array($nome,$sexo,$cidade));
 
 echo "Cadastro realizado com sucesso!!";
 
-// error 13:47
-
 ?>
