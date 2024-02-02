@@ -1,5 +1,5 @@
 <?php
-require 'Conexao/conexao.php';
+require '../Conexao/conexao.php';
 
 class Usuario{
     private $conn; 
@@ -28,6 +28,30 @@ class Usuario{
             $usuario = $row;
         }
         return $usuario;
+    }
+
+
+    public function editarUsuario($id, $nome, $email, $fone, $dataNasc){
+        $query = $this->conn->getConexao()->prepare("UPDATE usuarios SET nome = ?, fone = ?, data_nascimento = ? WHERE id_usuario = ?");
+        $query->bind_param("ssssi", $nome,$email,$fone,$dataNasc,$id);
+
+        if($query->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
+    public function excluirUsuario($id){
+        $query = $this->conn->getConexao()->prepare("DELETE FROM usuarios WHERE id_usuario = ?");
+        $query->bind_param("i", $id);
+
+        if($query->execute()){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
 

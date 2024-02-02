@@ -1,6 +1,4 @@
 <?php
-    /* CONEXAO COM O BANCO DE DADOS */
-
     class Conexao{  // Você ultiliza o abstract aqui por uma forma de segurança
         private $conn;
 
