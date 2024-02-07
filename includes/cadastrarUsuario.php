@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../Controller/Usuario.php';
+include('../Controller/Usuario.php');
 
 if(isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['fone']) && isset($_POST['dataNasc'])){
     $nome = $_POST['nome'];
@@ -11,5 +11,4 @@ if(isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['fone']) && i
     $cadastro = $usuario->cadastrarUsuario($nome, $email, $fone, $dataNasc);
 
 }
-
 ?>

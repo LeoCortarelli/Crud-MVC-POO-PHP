@@ -23,6 +23,11 @@
         <div>
             <h2>Lista de Usuarios</h2>
             <br>
+            <?php 
+                include("./Conexao/conexaoMysql.php");
+                $sql = "SELECT * FROM usuarios";
+                $result = $conn->query($sql);
+            ?>
             <table border="2">
                 <tr>
                     <th>ID</th>
@@ -32,22 +37,16 @@
                     <th>NESCIMENTO</th>
                 </tr>
                 <?php 
-                include("Controller/Usuario.php");
-                include("Conexao/conexao.php");
-                $this->conn->getConexao();
-                $usuarios = new Usuario();
-                $usuarios = $usuarios->listarUsuario();
-
-                foreach($usuarios as $user){ ?>
+                foreach($result as $user){ ?>
                     <tr>
-                        <td><?php echo $user['id_usuario'] ?></td>
+                        <td><?php echo $user['id_usuario']; ?></td>
                         <td><?php echo $user['nome'] ?></td>
                         <td><?php echo $user['email'] ?></td>
                         <td><?php echo $user['fone'] ?></td>
                         <td><?php echo $user['data_nascimento'] ?></td>
                         <td>
-                            <a href="Includes/editarUsuario.php?={$user['id_usuario']}">Editar</a>
-                            <a href="Includes/deletarUsuario.php?={$user['id_usuario']}">Deletar</a>
+                            <a href="includes/editarUsuario.php?id=<?php echo $user['id_usuario']; ?>">Editar</a>
+                            <a href="includes/deletarUsuario.php?id=<?php echo $user['id_usuario']; ?>">Deletar</a>
                         </td>
                     </tr>
                 <?php } ?>

@@ -1,5 +1,5 @@
 <?php
-    class Conexao{  // Você ultiliza o abstract aqui por uma forma de segurança
+    class Conexao{  
         private $conn;
 
         # Realizando a conexao com o banco de dados
