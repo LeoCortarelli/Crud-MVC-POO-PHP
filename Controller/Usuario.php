@@ -1,5 +1,5 @@
 <?php
-require '../Conexao/conexao.php';
+require './Conexao/conexao.php';
 
 class Usuario{
     private $conn; 

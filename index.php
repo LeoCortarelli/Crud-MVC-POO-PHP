@@ -33,6 +33,8 @@
                 </tr>
                 <?php 
                 include("Controller/Usuario.php");
+                include("Conexao/conexao.php");
+                $this->conn->getConexao();
                 $usuarios = new Usuario();
                 $usuarios = $usuarios->listarUsuario();
 
