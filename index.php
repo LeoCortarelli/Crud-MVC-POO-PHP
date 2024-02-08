@@ -8,7 +8,17 @@
 <body>
     <div>
         <div>
-            <h2>Cadastrar Usuario</h2><br><br>
+            <h2>Cadastrar Usuario</h2><br>
+            <?php 
+                session_start();
+                // Imprimir a mensagem de erro com sucesso
+                if(isset($_SESSION['msg'])){ // (isset)se existir a variavel
+                    echo $_SESSION['msg'];
+                    unset($_SESSION['msg']); // destruindo a msg
+                    "<br>";
+                }
+            ?>
+        <br>
             <form action="includes/cadastrarUsuario.php" method="post">
                 <input type="text" name="nome" placeholder="Nome"><br>
                 <input type="text" name="email" placeholder="Email"><br>
