@@ -53,6 +53,20 @@ class Usuario{
             return false;
         }
     }
+
+    public function detalhesUsuario($id){
+        $query = $this->conn->getConexao()->prepare("SELECT * FROM usuarios WHERE id_usuario = ?");
+        $query->bind_param("i",$id);
+        $query->execute();
+
+        $result = $query->get_result();
+
+        if($result->num_rows === 1){
+            return $result->fetch_assoc();
+        }else{
+            return false;
+        }
+    }
 }
 
 ?>
