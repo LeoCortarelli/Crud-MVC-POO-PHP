@@ -32,9 +32,9 @@ class Usuario{
 
 
     public function editarUsuario($id, $nome, $email, $fone, $dataNasc){
-        $query = $this->conn->getConexao()->prepare("UPDATE usuarios SET nome = ?, fone = ?, data_nascimento = ? WHERE id_usuario = ?");
-        $query->bind_param("ssssi", $nome,$email,$fone,$dataNasc,$id);
-
+        $query = $this->conn->getConexao()->prepare("UPDATE usuarios SET nome = ?, email = ?, fone = ?, data_nascimento = ? WHERE id_usuario = ?");
+        $query->bind_param("ssssi", $nome, $email, $fone, $dataNasc, $id);
+    
         if($query->execute()){
             return true;
         }else{

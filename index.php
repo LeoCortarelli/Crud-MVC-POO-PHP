@@ -55,7 +55,7 @@
                         <td><?php echo $user['fone'] ?></td>
                         <td><?php echo $user['data_nascimento'] ?></td>
                         <td>
-                            <a href="includes/EditarUsuario/editarUsuario.php?id=<?php echo $user['id_usuario']; ?>">Editar</a>
+                            <a href="includes/editarUsuario.php?id=<?php echo $user['id_usuario']; ?>">Editar</a>
                             <a href="includes/deletarUsuario.php?id=<?php echo $user['id_usuario']; ?>">Deletar</a>
                         </td>
                     </tr>
